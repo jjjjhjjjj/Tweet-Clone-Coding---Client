@@ -17,8 +17,6 @@ export default class TweetService {
       method: "POST",
       headers: this.getAuthorization(),
       body: JSON.stringify({
-        username: "bob",
-        name: "bob",
         text,
       }),
     });

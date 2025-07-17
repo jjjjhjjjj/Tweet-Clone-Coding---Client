@@ -19,7 +19,12 @@ export default class HTTPService {
     let data;
 
     try {
-      data = await res.json();
+      if (res.status === 204) {
+        // 204 No Content → 파싱하지 않고 null 반환
+        data = null;
+      } else {
+        data = await res.json();
+      }
     } catch (error) {
       console.error(error);
     }
